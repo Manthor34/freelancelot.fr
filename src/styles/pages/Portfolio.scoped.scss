@@ -1,0 +1,113 @@
+$color-1: #07234b;
+// $color-2: #67a3e5;
+$color-2: #4292c7;
+$color-3: #e0ecfb;
+
+:root {
+    --primary-color: #07234b; /* dark purple */
+    --background-color: $color-3; /* light gray */
+    --text-color: #333; /* dark gray */
+    --nav-hover-color: #ddd; /* light gray for hover state */
+    --nav-active-color: #bbb; /* medium gray for active state */
+    --nav-border-color: #333; /* dark gray for border */
+    --content-background-color: $color-3; /* white */
+    --content-border-color: #ddd; /* light gray for borders */
+  }
+  .portfolioContainer {
+    background-color: $color-3;
+    height: 100vh;
+  }
+  
+  .portfolioWrapper {
+    max-width: 75vw;
+    margin: 5vh auto;
+    color: $color-2;
+    padding: 20px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
+    gap: 40px; /* Espacement entre les cartes */
+    justify-items: center;
+  }
+  
+  .portfolioTitle {
+    text-align: center;
+    font-size: 55px;
+    margin: 40px !important;
+  }
+
+
+  .cardContainer {
+    width: 500px;
+    height: 650px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 50px;
+    background-color: $color-3; /* Couleur de fond par défaut */
+    transition: all 0.5s ease-in-out;
+    box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15),
+                -7px -7px 20px rgb(243, 247, 252),
+                inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+  }
+  
+  .cardContainer:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: $color-2; /* Couleur au survol */
+    box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.25),
+                -7px -7px 20px rgb(243, 247, 252),
+                inset 0px 0px 4px rgba(255, 255, 255, 0.3);
+  }
+  
+  .cardContainer img {
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 2%;
+    transition: transform 0.5s;
+  }
+  
+  .cardContainer:hover img {
+    transform: scale(1.05);
+  }
+  
+  .cardContainer h3 {
+    font-size: 30px;
+    margin-top: 15px;
+    color: black; /* Couleur des titres */
+  }
+  
+  .cardContainer p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: black; /* Couleur du texte */
+    text-align: left;
+  }
+
+
+  @media screen and (max-width: 1400px) {
+    .portfolioWrapper {
+      grid-template-columns: 1fr; /* Une seule colonne */
+    }
+  
+    .cardContainer {
+      width: 100%;
+      max-width: 90%; /* Ajuste la largeur pour petits écrans */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .portfolioTitle {
+      font-size: 40px; /* Réduit la taille du titre */
+    }
+  
+    .cardContainer {
+      padding: 10px; /* Réduit le padding pour petits écrans */
+    }
+  
+    .cardContainer p {
+      font-size: 16px; /* Réduit la taille du texte */
+    }
+  }

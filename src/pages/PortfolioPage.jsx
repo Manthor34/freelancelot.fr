@@ -11,7 +11,7 @@ const PortfolioPage = () => {
   const components = [
     { Component: JinJooContent, key: 'jinjoo', link: 'https://www.jin-joo.fr' },
     { Component: LokmanContent, key: 'lokman', link: 'https://www.lokman.fr' },
-    { Component: AmadeusContent, key: 'amadeus', link: 'https://www.amadeus.com' },
+    { Component: AmadeusContent, key: 'amadeus', link: 'https://viktorchondria.com/salieri' },
     { Component: BBContent, key: 'bb', link: 'https://www.beau-bun.fr' },
   ];
 

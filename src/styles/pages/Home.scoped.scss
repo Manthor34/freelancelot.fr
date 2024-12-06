@@ -132,6 +132,10 @@ body {
     }
 }
 
+.buttonDiv {
+    display: flex;
+    justify-content: center;
+}
 .buttonScroll {
     padding: 50px;
     margin: 50px;

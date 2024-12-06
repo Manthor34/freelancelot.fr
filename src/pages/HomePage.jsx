@@ -13,11 +13,24 @@ import FadeIn from 'react-fade-in/lib/FadeIn';
 
 function HomePage() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const introRef = useRef(null);
 
   const scrollToIntroduction = () => {
     introRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Check if the screen size is mobile
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Mobile breakpoint
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -53,12 +66,12 @@ function HomePage() {
           <div className="wave wave4" style={{ backgroundImage: `url(${wave})` }}></div>
         </div>
       </div>
-      <div>
+      <div className='buttonDiv'>
         <button className="buttonScroll" onClick={scrollToIntroduction}>
           <img src={arrow} alt="bouton pour défiler" />
         </button>
       </div>
-      <FadeIn visible={isVisible} transitionDuration={1500}>
+      {isMobile ? (
         <div className="introduction" ref={introRef}>
           <h2>Bienvenue chez FREE LANCELOT!</h2>
           <p>
@@ -68,8 +81,20 @@ function HomePage() {
             futurs sites web, applications, et au-delà.
           </p>
         </div>
-      </FadeIn>
-      <FadeIn visible={isVisible} delay={500} transitionDuration={2500}>
+      ) : (
+        <FadeIn visible={isVisible} transitionDuration={1500}>
+          <div className="introduction" ref={introRef}>
+            <h2>Bienvenue chez FREE LANCELOT!</h2>
+            <p>
+              La forge numérique où l'innovation rencontre la fonction. Fondée par un duo de développeurs web passionnés,
+              nous nous spécialisons dans la création d'expériences web de pointe utilisant React. Notre projet passion
+              est de développer des solutions IA sur mesure que nous visons à intégrer de manière transparente dans les
+              futurs sites web, applications, et au-delà.
+            </p>
+          </div>
+        </FadeIn>
+      )}
+      {isMobile ? (
         <div className="page">
           <Link to="/services">
             <div className="linkContainer linkServices">
@@ -96,7 +121,36 @@ function HomePage() {
             </div>
           </Link>
         </div>
-      </FadeIn>
+      ) : (
+        <FadeIn visible={isVisible} delay={500} transitionDuration={2500}>
+          <div className="page">
+            <Link to="/services">
+              <div className="linkContainer linkServices">
+                <img src={services} className="imgLink imgServices" alt="bouton services" />
+                <h3>SERVICES</h3>
+              </div>
+            </Link>
+            <Link to="/portfolio">
+              <div className="linkContainer linkPortfolio">
+                <img src={portfolio} className="imgLink imgPortfolio" alt="bouton portfolio" />
+                <h3>PORTFOLIO</h3>
+              </div>
+            </Link>
+            <Link to="/team">
+              <div className="linkContainer linkTeam">
+                <img src={team} className="imgLink imgTeam" alt="bouton équipe" />
+                <h3>ÉQUIPE</h3>
+              </div>
+            </Link>
+            <Link to="/contact">
+              <div className="linkContainer linkContact">
+                <img src={contact} className="imgLink imgContact" alt="bouton contact" />
+                <h3>CONTACT</h3>
+              </div>
+            </Link>
+          </div>
+        </FadeIn>
+      )}
     </div>
   );
 }

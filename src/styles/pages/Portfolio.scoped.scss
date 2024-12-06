@@ -38,7 +38,7 @@ $color-3: #e0ecfb;
 
 
   .cardContainer {
-    width: 500px;
+    width: 90%;
     height: 650px;
     padding: 20px;
     margin: 20px;
@@ -62,7 +62,7 @@ $color-3: #e0ecfb;
   }
   
   .cardContainer img {
-    width: 400px;
+    width: 100%;
     height: auto;
     object-fit: contain;
     border-radius: 2%;
@@ -104,7 +104,8 @@ $color-3: #e0ecfb;
     }
   
     .cardContainer {
-      padding: 10px; /* Réduit le padding pour petits écrans */
+      margin: 0;
+      width: 100%;
     }
   
     .cardContainer p {

@@ -61,7 +61,7 @@ p {
 .spanServices {
     font-weight: bolder;
 }
-p {
+.serviceCard>p {
     height: 100px;
 }
 .servicesText>p, .servicesText2>p {
@@ -87,25 +87,29 @@ p {
         background: $color-2;
         color: white;
         border: none;
+        padding: 10px;
+        margin-top: 0px;
+        width: 100px;
+        height: 40px;
+        font-size: 15px;
     }
     .spanServices {
         font-size: 20px;
     }
+    .serviceCard>p {
+        height: auto;
+    }
     .servicesText>p {
-        margin-top: 150px;
+        margin-top: 10px;
         min-height: 200px;
         text-align: left;
+        margin-bottom: 0;
     }
     .servicesText2>p {
-        margin-top: 150px;
-        min-height: 250px;
+        margin-top: 10px;
+        min-height: 200px;
         text-align: left;
-    }
-    .serviceCard>button {
-        width: 100px;
-        height: 40px;
-        font-size: 15px;
-        margin-top: 150px !important;
+        margin-bottom: 0;
     }
 
     .serviceCard .spanServices + div {

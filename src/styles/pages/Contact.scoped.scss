@@ -16,11 +16,16 @@ $color-5: rgb(167, 179, 201);
     color: $color-1;
 }
 
+.contactButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .contactButtonContainer > button {
     background: white;
     color: $color-2;
     padding: 10px 20px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 5px;
     font-size: 20px;
     border: none;
